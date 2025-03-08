@@ -1,0 +1,16 @@
+@keyframes upAndDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.svg-arrow {
+    margin-top: 50px;
+    animation: upAndDown 1s infinite;
+    background: url('/assets/icons/down.svg') no-repeat center center;
+    width: 48px; 
+    height: 48px; 
+}

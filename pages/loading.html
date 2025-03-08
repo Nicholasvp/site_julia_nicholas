@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <link href="../css/loading.css" rel="stylesheet">
+</head>
+<body>
+    <div id="loading">
+        <img src="../assets/JN_logo.png" alt="Logo" class="loading-logo">
+    </div>
+    <script>
+        setTimeout(function() {
+            localStorage.setItem("loadingShown", "true"); 
+            window.location.href = '../index.html';
+        }, 2000);
+    </script>
+</body>
+</html>

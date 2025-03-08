@@ -1,0 +1,102 @@
+:root {
+    --primary-color: white;
+    --secondary-color: black;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Bonheur Royale', cursive;
+}
+
+body {
+    font-family: var(--font-primary);
+}
+
+.font-secondary {
+    font-family: var(--font-secondary);
+}
+.text-large {
+    font-size: 3em;
+    /* font-weight: bold; */
+}
+
+.text-medium {
+    font-size: 2em;
+    font-weight: normal;
+}
+
+.text-small {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.text-caption {
+    font-size: 0.75em;
+    font-weight: lighter;
+}
+
+.logo {
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.background-image-main {
+    background-image: url('../assets/nicholas_julia_paris-114.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    color: var(--primary-color);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-image-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+    z-index: 1;
+}
+
+.image-presentes {
+    background-image: url('../assets/nicholas_julia_paris-16.jpg');
+    width: 100%;    
+}
+
+.background-image-main > * {
+    position: relative;
+    z-index: 2;
+}
+
+.countdown {
+    font-size: 1.5em;
+    margin: 20px;
+}
+
+.play-pause-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10%;
+    
+    outline: none;
+}
+
+.play-pause-button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 2em;
+    cursor: pointer;
+    outline: none; 
+}
