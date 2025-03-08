@@ -1,4 +1,6 @@
-const stripe = require("stripe")("sk_test_51QjrDjKPekmBM7jYFbYRxxZUf4Z4q1NO7pHU2pzq323Mv4VWuRp7aSHfxI3YukBGUOTWZSncukBR3WoRgAIl7PnH002lgQqJAc"); 
+require('dotenv').config(); // Carrega as variáveis do arquivo .env
+
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
     try {
