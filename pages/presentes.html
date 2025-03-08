@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Dinâmico</title>
+</head>
+<body>
+    <h2>Pague um Valor Personalizado</h2>
+    <input type="number" id="amount" placeholder="Digite o valor (R$)">
+    <button id="pay">Pagar</button>
+
+    <script>
+        document.getElementById("pay").addEventListener("click", async () => {
+            const amount = document.getElementById("amount").value;
+            if (!amount || amount < 1) {
+                alert("Digite um valor válido!");
+                return;
+            }
+
+            const response = await fetch("/.netlify/functions/checkout", {
+                method: "POST",
+                body: JSON.stringify({ amount: amount }),
+                headers: { "Content-Type": "application/json" }
+            });
+
+            const data = await response.json();
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                alert("Erro ao criar pagamento");
+            }
+        });
+    </script>
+</body>
+</html>
