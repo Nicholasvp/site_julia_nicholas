@@ -23,8 +23,8 @@ exports.handler = async (event) => {
                 }
             ],
             mode: "payment",
-            success_url: "https://seusite.com/sucesso",
-            cancel_url: "https://seusite.com/cancelado"
+            success_url: "https://julianicholas.netlify.app/pages/obrigado.html",
+            cancel_url: "https://julianicholas.netlify.app/pages/obrigado.html"
         });
 
         return { statusCode: 200, body: JSON.stringify({ url: session.url }) };

@@ -1,11 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const selectButtons = document.querySelectorAll('.select-button');
     const giftItems = document.querySelectorAll('.gift-item');
     const totalValueElement = document.getElementById('total-value');
+    const totalValueModal = document.getElementById('modal-total-value');
+    const modal = document.getElementById("paymentModal");
+    const span = document.getElementsByClassName("close")[0];
+    const pixButton = document.getElementById("pix-button");
+    const stripeButton = document.getElementById("stripe-button");
     let totalValue = 0;
 
     function parsePrice(priceString) {
         return parseFloat(priceString.replace('.', '').replace(',', '.'));
+    }
+
+    function updateTotalValue() {
+        totalValueElement.textContent = totalValue.toFixed(2).replace('.', ',');
+        totalValueModal.textContent = totalValue.toFixed(2).replace('.', ',');
     }
 
     function toggleSelection(giftItem, button) {
@@ -21,10 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
             button.textContent = 'Remover';
         }
 
-        totalValueElement.textContent = totalValue.toFixed(2).replace('.', ',');
+        updateTotalValue();
     }
 
-    giftItems.forEach(giftItem => {
+    function setupGiftItem(giftItem) {
         const button = giftItem.querySelector('.select-button');
         giftItem.addEventListener('click', (event) => {
             if (event.target !== button) {
@@ -35,48 +44,63 @@ document.addEventListener('DOMContentLoaded', () => {
             event.stopPropagation();
             toggleSelection(giftItem, button);
         });
-    });
+    }
 
-    const modal = document.getElementById("paymentModal");
-    const span = document.getElementsByClassName("close")[0];
-    const pixButton = document.getElementById("pix-button");
-    const stripeButton = document.getElementById("stripe-button");
-
-    document.getElementById('pay-button').addEventListener('click', () => {
-        if (totalValue <= 0) {
-            alert("Selecione pelo menos um presente!");
+    function setupModal() {
+        document.getElementById('pay-button').addEventListener('click', () => {
+            const alertPlaceholder = document.querySelector('.alert.alert-warning');
+            if (totalValue <= 0) {
+                alertPlaceholder.classList.remove('d-none');
+                alertPlaceholder.innerHTML = `
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    Selecione pelo menos um presente!
+                </div>
+            `;
             return;
-        }
-        modal.style.display = "block";
-    });
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-    pixButton.addEventListener('click', () => {
-        navigator.clipboard.writeText("chave-pix-aqui");
-        alert("Chave PIX copiada!");
-    });
-
-    stripeButton.addEventListener('click', async () => {
-        const response = await fetch("/.netlify/functions/checkout", {
-            method: "POST",
-            body: JSON.stringify({ amount: totalValue * 100 }), // Convert to cents
-            headers: { "Content-Type": "application/json" }
+            }
+            modal.style.display = "block";
         });
 
-        const data = await response.json();
-        if (data.url) {
-            window.location.href = data.url;
-        } else {
-            alert("Erro ao criar pagamento");
+        span.onclick = function() {
+            modal.style.display = "none";
         }
-    });
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+
+    function setupPaymentButtons() {
+        pixButton.addEventListener('click', () => {
+            const originalText = pixButton.textContent;
+            pixButton.textContent = 'Copiado!';
+            navigator.clipboard.writeText("nicholasvpinheiro@gmail.com");
+            pixButton.classList.add('copied');
+            setTimeout(() => {
+            pixButton.classList.remove('copied');
+            pixButton.textContent = originalText;
+            }, 2000);
+        });
+
+        stripeButton.addEventListener('click', async () => {
+            const response = await fetch("/.netlify/functions/checkout", {
+                method: "POST",
+                body: JSON.stringify({ amount: totalValue }), 
+                headers: { "Content-Type": "application/json" }
+            });
+
+            const data = await response.json();
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                alert("Erro ao criar pagamento");
+            }
+        });
+    }
+
+    giftItems.forEach(setupGiftItem);
+    setupModal();
+    setupPaymentButtons();
 });

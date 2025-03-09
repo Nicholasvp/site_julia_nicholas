@@ -19,14 +19,15 @@ body {
 .gift-item {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 250px;
+    width: 200px;
     padding: 15px;
     text-align: center;
     transition: transform 0.3s;
-    cursor: pointer; /* Adiciona cursor de ponteiro */
+    cursor: pointer;
 }
 .gift-item:hover {
     transform: scale(1.05);
@@ -46,6 +47,10 @@ body {
     font-size: 16px;
     color: #27ae60;
     margin-top: 5px;
+}
+.gift-item.selected {
+    background-color: #d4edda;
+    border: 2px solid #28a745;
 }
 .select-button {
     margin-top: 10px;
@@ -73,22 +78,32 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 300px; /* Ajuste conforme necessário */
+    width: 350px; /* Ajuste conforme necessário */
 }
 #pay-button {
-    background-color: #e74c3c;
+    background-color: #27ae60; /* Verde */
     color: white;
     border: none;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    animation: pulse 1.5s infinite;
 }
+
 #pay-button:hover {
-    background-color: #c0392b;
+    background-color: #1e8449; /* Verde mais escuro */
 }
-.gift-item.selected {
-    background-color: #d4edda;
-    border: 2px solid #28a745;
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Modal styles */
@@ -104,10 +119,12 @@ body {
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
     padding-top: 60px; 
+    
 }
 
 .modal-content {
     background-color: #fefefe;
+    border-radius: 20px;
     margin: 5% auto; 
     padding: 20px;
     border: 1px solid #888;
@@ -131,6 +148,17 @@ body {
 #pix-button, #stripe-button {
     margin-top: 10px;
     background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#pix-button.copied {
+    margin-top: 10px;
+    background-color: #28a745;
     color: white;
     border: none;
     padding: 10px;

@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Presentes de Casamento</title>
     <link rel="stylesheet" href="../css/presentes.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="row">
-        <a href="../index.html">Voltar</a>
-        <h1>Lista de Presentes</h1>
+    <div class="row justify-content-between align-items-center">
+        <a href="../index.html" class="col-auto">Voltar</a>
+        <h1 class="col text-center">Lista de Presentes</h1>
     </div>
+    <div class="alert alert-warning d-none" role="alert"></div>
     <div class="gift-list">
         <div class="gift-item">
             <img src="../assets/presentes/panelas.jpg" alt="Conjunto de Panelas">
@@ -40,7 +42,7 @@
         </div>
         <div class="gift-item">
             <img src="../assets/presentes/talher.jpg" alt="Talher">
-            <span class="gift-name">Jantar de talher</span>
+            <span class="gift-name">Jogo de talher</span>
             <span class="gift-price">R$ 300,00</span>
             <button class="select-button" data-price="300">Selecionar</button>
         </div>
@@ -117,18 +119,21 @@
         <button id="pay-button">Presentear</button>
     </div>
 
-    <div id="paymentModal" class="modal">
+    <div id="paymentModal" class="modal" role="dialog">
         <div class="modal-content">
             <span class="close">&times;</span>
+            <h3>Escolha a forma de pagamento</h3>
             <p>Total a pagar: R$ <span id="modal-total-value">0,00</span></p>
-            <h2>Escolha a forma de pagamento</h2>
             <p>Chave PIX: nicholasvpinheiro@gmail.com</p>
-            <button id="pix-button">Copiar PIX</button>
+            <button id="pix-button">Copiar Chave PIX</button>
             <button id="stripe-button">Pagar com Cartão</button>
         </div>
     </div>
 
     <script src="../js/presentes.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
