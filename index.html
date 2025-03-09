@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,13 @@
     <link href="css/more.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="assets/JN_logo.png" type="image/png">
     <script>
         if (!localStorage.getItem("loadingShown")) {
@@ -21,6 +25,7 @@
         localStorage.removeItem("loadingShown");
     </script>
 </head>
+
 <body>
     <div class="play-pause-container">
         <button class="play-pause-button" id="playButton">▶️</button>
@@ -28,10 +33,17 @@
     <img src="assets/JN_logo.png" alt="Logo" class="logo">
     <div class="background-image-main">
         <h1 class="font-secondary text-large">Julia & Nicholas</h1>
-        <p class="countdown" id="countdown"></p>
-        <a href="#detalhes" class="smooth-scroll">
-            <div class="svg-arrow"></div>
-        </a> 
+        <p class="countdown mb-5" id="countdown"></p>
+        
+        <a  href="pages/presentes.html" class="button-82-pushable no-hover" role="button">
+            <span class="button-82-shadow"></span>
+            <span class="button-82-edge"></span>
+            <span class="button-82-front text">
+                Presentear
+            </span>
+        </a>
+
+
     </div>
 
     <section class="container my-5">
@@ -39,7 +51,8 @@
             <div class="col-md-6">
                 <h2 class="mb-4" id="detalhes">Detalhes do Evento</h2>
                 <p>Data: 26 de Julho de 2025</p>
-                <p>Local: <a href="https://maps.app.goo.gl/VuvLFZin2ZX2hDk17" target="_blank">Sitio Encanto (clique aqui para ver) </a></p> 
+                <p>Local: <a href="https://maps.app.goo.gl/VuvLFZin2ZX2hDk17" target="_blank">Sitio Encanto (clique aqui
+                        para ver) </a></p>
                 <p>Horário: 15:30</p>
             </div>
         </div>
@@ -50,7 +63,7 @@
             <div class="col-md-12 text-center">
                 <h2 class="mb-4">Presentes</h2>
                 <p>Se você deseja nos presentear, clique no botão abaixo:</p>
-                <a href="pages/presentes.html" class="btn btn-primary">Presentear</a>
+                <a href="pages/presentes.html" class="button-34" role="button">Presentear</a>
             </div>
         </div>
     </section>
@@ -67,4 +80,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>

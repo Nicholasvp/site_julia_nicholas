@@ -1,36 +1,134 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout Dinâmico</title>
+    <title>Presentes de Casamento</title>
+    <link rel="stylesheet" href="../css/presentes.css">
 </head>
+
 <body>
-    <h2>Pague um Valor Personalizado</h2>
-    <input type="number" id="amount" placeholder="Digite o valor (R$)">
-    <button id="pay">Pagar</button>
+    <div class="row">
+        <a href="../index.html">Voltar</a>
+        <h1>Lista de Presentes</h1>
+    </div>
+    <div class="gift-list">
+        <div class="gift-item">
+            <img src="../assets/presentes/panelas.jpg" alt="Conjunto de Panelas">
+            <span class="gift-name">Conjunto de Panelas</span>
+            <span class="gift-price">R$ 300,00</span>
+            <button class="select-button" data-price="300">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/aspirador.jpeg" alt="Aspirador de Pó">
+            <span class="gift-name">Aspirador de Pó</span>
+            <span class="gift-price">R$ 600,00</span>
+            <button class="select-button" data-price="600">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/guarda_roupa.jpeg" alt="Guarda Roupa">
+            <span class="gift-name">Guarda Roupa</span>
+            <span class="gift-price">R$ 1.000,00</span>
+            <button class="select-button" data-price="1000">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/microondas.jpg" alt="Microondas">
+            <span class="gift-name">Microondas</span>
+            <span class="gift-price">R$ 500,00</span>
+            <button class="select-button" data-price="500">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/talher.jpg" alt="Talher">
+            <span class="gift-name">Jantar de talher</span>
+            <span class="gift-price">R$ 300,00</span>
+            <button class="select-button" data-price="300">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/lua_de_mel.jpg" alt="Lua de Mel">
+            <span class="gift-name">Lua de mel</span>
+            <span class="gift-price">R$ 2.000,00</span>
+            <button class="select-button" data-price="2000">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/facas.jpeg" alt="Jogo de Facas">
+            <span class="gift-name">Jogo de Facas</span>
+            <span class="gift-price">R$ 250,00</span>
+            <button class="select-button" data-price="250">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/cama.jpeg" alt="Jogo de Cama">
+            <span class="gift-name">Jogo de Cama</span>
+            <span class="gift-price">R$ 250,00</span>
+            <button class="select-button" data-price="250">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/livro_receita.jpg" alt="Livro de Receitas">
+            <span class="gift-name">Livro de Receitas</span>
+            <span class="gift-price">R$ 120,00</span>
+            <button class="select-button" data-price="120">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/geladeira.jpg" alt="Geladeira">
+            <span class="gift-name">Geladeira</span>
+            <span class="gift-price">R$ 3.000,00</span>
+            <button class="select-button" data-price="3000">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/jogo_de_jarra.jpg" alt="Jogo de Jarra">
+            <span class="gift-name">Jogo de Jarra</span>
+            <span class="gift-price">R$ 120,00</span>
+            <button class="select-button" data-price="120">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/toalhas.jpeg" alt="Toalhas">
+            <span class="gift-name">Toalhas</span>
+            <span class="gift-price">R$ 100,00</span>
+            <button class="select-button" data-price="100">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/almofadas.jpg" alt="Conjunto de Almofadas">
+            <span class="gift-name">Conjunto de Almofadas</span>
+            <span class="gift-price">R$ 150,00</span>
+            <button class="select-button" data-price="150">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/lava_seca.jpeg" alt="Lava e Seca">
+            <span class="gift-name">Lava e Seca</span>
+            <span class="gift-price">R$ 3.500,00</span>
+            <button class="select-button" data-price="3500">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/tabua_de_passar.jpg" alt="Tabua de Passar">
+            <span class="gift-name">Tabua de Passa</span>
+            <span class="gift-price">R$ 250,00</span>
+            <button class="select-button" data-price="250">Selecionar</button>
+        </div>
+        <div class="gift-item">
+            <img src="../assets/presentes/ferro_de_passar.jpg" alt="Ferro de passar">
+            <span class="gift-name">Ferro de passar</span>
+            <span class="gift-price">R$ 100,00</span>
+            <button class="select-button" data-price="100">Selecionar</button>
+        </div>
+        
+    </div>
+    <div class="floating-total">
+        <span>Total: R$ <span id="total-value">0,00</span></span>
+        <button id="pay-button">Presentear</button>
+    </div>
 
-    <script>
-        document.getElementById("pay").addEventListener("click", async () => {
-            const amount = document.getElementById("amount").value;
-            if (!amount || amount < 1) {
-                alert("Digite um valor válido!");
-                return;
-            }
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Total a pagar: R$ <span id="modal-total-value">0,00</span></p>
+            <h2>Escolha a forma de pagamento</h2>
+            <p>Chave PIX: nicholasvpinheiro@gmail.com</p>
+            <button id="pix-button">Copiar PIX</button>
+            <button id="stripe-button">Pagar com Cartão</button>
+        </div>
+    </div>
 
-            const response = await fetch("/.netlify/functions/checkout", {
-                method: "POST",
-                body: JSON.stringify({ amount: amount }),
-                headers: { "Content-Type": "application/json" }
-            });
-
-            const data = await response.json();
-            if (data.url) {
-                window.location.href = data.url;
-            } else {
-                alert("Erro ao criar pagamento");
-            }
-        });
-    </script>
+    <script src="../js/presentes.js"></script>
 </body>
+
 </html>
