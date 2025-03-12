@@ -6,10 +6,6 @@ exports.handler = async (event) => {
     try {
         const { amount } = JSON.parse(event.body);
 
-        if (!amount || amount < 100) {
-            return { statusCode: 400, body: JSON.stringify({ error: "Valor inválido!" }) };
-        }
-
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             line_items: [
